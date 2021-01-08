@@ -33,6 +33,7 @@
                                 <input type="datetime-local" class="form-control" name="end_date" class="date" placeholder="Enter end date" /><br /><br />
 
                                 <input type="submit" name="submit" class="btn btn-primary" value="Add Event Data" />
+                                <a class="btn btn-primary" href="{{route('back')}}">Back</a>
                             </form>
                         </div>
                     </div>

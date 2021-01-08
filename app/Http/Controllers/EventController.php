@@ -30,7 +30,7 @@ class EventController extends Controller
             $row->id,
             [
                 'color' =>$row->color,
-                'url' => 'http://full-calendar.io'
+                'url' => "http://127.0.0.1:8000/events/".$row->id."/edit"
                 
             ]
             );

@@ -15,10 +15,10 @@
     <div class="container">
         <div class="jumbotron">
             <h2 align="center"> EVENT CALENDAR </h2>
-            <div class="row">
-                <a href="/addeventurl" class="btn btn-success"> ADD events </a>
-                <a href="/displaydata" class="btn btn-primary"> EDIT events </a>
-                <a href="/deleteevent" class="btn btn-danger"> DELETE events </a>
+            <div class="row" align="center">
+                <a href="/addeventurl" class="btn btn-success"> ADD event </a>
+                <a href="/displaydata" class="btn btn-primary"> All events </a>
+
 
 
             </div>
@@ -37,23 +37,23 @@
                     <p>{{ \Session::get('success') }}</p>
                 </div>
                 @endif
-            
-
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-dafault">
-                    <div class="panel-heading" style="background: #2e6da4; color:white;">
-                        Event Calendar Example
-                    </div>
-                    <div class="panel-body">
 
 
-                        {!! $calendar->calendar() !!}
-                       {!! $calendar->script() !!}
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="panel panel-dafault">
+                        <div class="panel-heading" style="background: #2e6da4; color:white;">
+                           Calendar
+                        </div>
+                        <div class="panel-body">
+
+
+                            {!! $calendar->calendar() !!}
+                            {!! $calendar->script() !!}
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 
 </body>

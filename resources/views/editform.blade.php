@@ -12,12 +12,12 @@
         {{ csrf_field() }}
         <div class="container">
             <div class="jumbotron" style="margin-top:5%;">
-                <h1> Update your data </h1>
+                <h1> UPDATE</h1>
                 <hr>
                 <input type="hidden" name="_method" value="UPDATE" />
 
                 <div class="form-group">
-                    <label>Name of Festival</label>
+                    <label>title</label>
                     <input type="text" class="form-control" name="title" placeholder="Enter Name" value="{{ $events->title }}">
                 </div>
 
@@ -26,19 +26,29 @@
                     <input type="color" class="form-control" name="color" placeholder="Enter Color" value="{{ $events->color }}">
                 </div>
                 <div class="form-group">
-                    <label>Start date of festival</label>
-                    <input type="datetime-local" class="form-control" name="start_date" placeholder="Enter Start Date" value="{{ $events->start_date }}">
+                    <label>Start time</label>
+                    <input type="datetime-local" class="form-control" name="start_date" placeholder="Enter Start Date"value="{{ date('Y-m-d\TH:i', strtotime($events->start_date)) }}">
                 </div>
 
                 <div class="form-group">
-                    <label>End date of festival</label>
-                    <input type="datetime-local" class="form-control" name="end_date" placeholder="Enter Start Date" value="{{ $events->end_date }}">
+                    <label>End time</label>
+                    <input type="datetime-local" class="form-control" name="end_date" placeholder="Enter Start Date" value="{{ date('Y-m-d\TH:i', strtotime($events->end_date)) }}">
                 </div>
 
                 {{ method_field('PUT') }}
-                <button type="submit" name="submit" class="btn btn-success">Update data </button>
+                <button type="submit" name="submit" class="btn btn-success">Update</button>
+                 <a class="btn btn-danger" href="{{route('destroy',$id)}}">Delete</a>
+                  <a class="btn btn-primary" href="{{route('back')}}">Back</a>
             </div>
         </div>
     </form>
+    {{-- <form form action="{{ action('App\Http\Controllers\EventController@destroy',$events['id']) }}" method="post">
+        {{ csrf_field() }}
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit" class="btn btn-danger">
+            <i class="glyphicon glyphicon-trash"></i> Delete</button>
+    </form>
+       <a class="btn btn-primary" href="{{route('edit',$sanpham->id)}}">Edit</a> --}}
 </body>
 </html>
+

@@ -24,3 +24,6 @@ Route::post('store',[
 ]);
 Route::get('/displaydata','App\Http\Controllers\EventController@show');
 Route::get('/deleteevent','App\Http\Controllers\EventController@show');
+Route::get('destroy/{id}','App\Http\Controllers\EventController@destroy')->name('destroy');
+Route::get('/home','App\Http\Controllers\EventController@index')->name('back');
+
