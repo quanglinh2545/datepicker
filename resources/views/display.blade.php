@@ -4,30 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> Document</title>
+    <title> Event Calendar</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container">
         <div class="jumbotron">
+        <h2 align = "center" > ALL EVENTS </h2>
             <table class="table table-striped table-bordered table-hover">
                 <thead class="thead">
                     <tr class="warning">
-                        <th> Id</th>
+                        {{-- <th> Id</th> --}}
                         <th> Title </th>
-                        <th> Color </th>
-                        <th> START Date</th>
-                            <th> END Date</th>
-                        <th> Update /Edit </th>
+                          <th> Description </th>
+                        {{-- <th> Color </th> --}}
+                        <th> Start time</th>
+                            <th> End time</th>
+                        <th>Edit </th>
                         <th> Delete </th>
                     </tr>
                 </thead>
                 @foreach($events as $event)
                 <tbody>
                     <tr>
-                        <td>{{ $event->id }}</td>
+                        {{-- <td>{{ $event->id }}</td> --}}
                         <td>{{ $event->title }}</td>
-                         <td>{{ $event->color }}</td>
+                         <td>{{ $event->description }}</td>
+                         {{-- <td>{{ $event->color }}</td> --}}
                         <td>{{ $event->start_date }}</td>
                         <td>{{ $event->end_date }}</td>
                         <th><a href="{{ action('App\Http\Controllers\EventController@edit',$event['id']) }}" class="btn btn-success">
@@ -45,7 +48,7 @@
                 </tbody>
                 @endforeach
             </table>
-
+<a class="btn btn-primary" href="{{route('back')}}">Back</a>
         </div>
     </div>
 </body>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> Document</title>
+    <title> Event Calendar</title>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
@@ -12,13 +12,18 @@
         {{ csrf_field() }}
         <div class="container">
             <div class="jumbotron" style="margin-top:5%;">
-                <h1> UPDATE</h1>
+                <h2 align = "center"> Event</h2>
                 <hr>
                 <input type="hidden" name="_method" value="UPDATE" />
 
                 <div class="form-group">
                     <label>title</label>
-                    <input type="text" class="form-control" name="title" placeholder="Enter Name" value="{{ $events->title }}">
+                    <input type="text" class="form-control" name="title" placeholder="title here" value="{{ $events->title }}">
+                </div>
+
+                <div class="form-group">
+                    <label>description</label>
+                    <input type="text" class="form-control" name="description" placeholder="description here" value="{{ $events->description }}">
                 </div>
 
                 <div class="form-group">
@@ -27,12 +32,12 @@
                 </div>
                 <div class="form-group">
                     <label>Start time</label>
-                    <input type="datetime-local" class="form-control" name="start_date" placeholder="Enter Start Date"value="{{ date('Y-m-d\TH:i', strtotime($events->start_date)) }}">
+                    <input type="datetime-local" class="form-control" name="start_date" placeholder="Start time"value="{{ date('Y-m-d\TH:i', strtotime($events->start_date)) }}">
                 </div>
 
                 <div class="form-group">
                     <label>End time</label>
-                    <input type="datetime-local" class="form-control" name="end_date" placeholder="Enter Start Date" value="{{ date('Y-m-d\TH:i', strtotime($events->end_date)) }}">
+                    <input type="datetime-local" class="form-control" name="end_date" placeholder="End time" value="{{ date('Y-m-d\TH:i', strtotime($events->end_date)) }}">
                 </div>
 
                 {{ method_field('PUT') }}

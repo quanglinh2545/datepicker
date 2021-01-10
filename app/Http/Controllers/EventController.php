@@ -23,6 +23,7 @@ class EventController extends Controller
             $enddate = $row->end_date."24:00:00";
             $event[] = \Calendar::event(
             $row->title,
+            //$row->description,
             false,
             new \DateTime($row->start_date),
             new \DateTime($row->end_date),
@@ -79,6 +80,7 @@ class EventController extends Controller
         ]);
         $events = new Event;
         $events->title = $request->input('title');
+        $events->description = $request->input('description');
         $events->color = $request->input('color');
         $events->start_date = $request->input('start_date');
         $events->end_date = $request->input('end_date');
@@ -133,6 +135,7 @@ class EventController extends Controller
 
         $events = Event::find($id);
         $events->title = $request->input('title');
+        $events->description = $request->input('description');
         $events->color = $request->input('color');
         $events->start_date = $request->input('start_date');
         $events->end_date = $request->input('end_date');
